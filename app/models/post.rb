@@ -4,5 +4,5 @@ class Post < ApplicationRecord
 
   validates :content, presence: true #不留空白
 
-  scope :recent, -> { order{"created_at DESC"}}
+  scope :recent, -> { order("created_at DESC")}
 end
