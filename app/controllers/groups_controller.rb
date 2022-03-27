@@ -3,10 +3,9 @@ class GroupsController < ApplicationController
     @groups = Group.all
   end
 
-  def new
+def new
     @group = Group.new
   end
-
 
   def create
     @group = Group.new(group_params)
