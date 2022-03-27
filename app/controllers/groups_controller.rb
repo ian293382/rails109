@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
-  before_action :authenticate_user! , only: [:new, :creat, :edit, :update ,:destroy]
-  before_action :find_group_and_check_permission, only: [:edit, :update,  :destroy]
+  before_action :authenticate_user! , only: [:new, :create, :edit, :update, :destroy]
+  before_action :find_group_and_check_permission,  only: [:edit, :update,  :destroy]
   def index
     @groups = Group.all
   end
@@ -42,8 +42,6 @@ class GroupsController < ApplicationController
 
   def destroy
 
-
-
     @group.destroy
     flash[:alert] = "Group delete"
     redirect_to groups_path
@@ -60,7 +58,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
 
     if current_user != @group.user
-      redirect_to root_path, alert: "You have no permiission."
+      redirect_to root_path, alert: "You have no permission."
     end
   end
 
