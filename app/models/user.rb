@@ -11,7 +11,7 @@ class User < ApplicationRecord
          has_many :participated_groups, :through => :group_relationships, :source => :group
 
          def is_member_of?(group)
-            participated_groups.include?(@group)
+            participated_groups.include?(group)
         end
 
         def join!(group)
